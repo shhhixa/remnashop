@@ -48,26 +48,21 @@ hdr-hwid = <b>📱 Устройство:</b>
 
 # Fragments
 frg-user =
-    <blockquote>
     • <b>ID</b>: <code>{ $user_id }</code>
     • <b>Имя</b>: { $user_name }
     { $personal_discount ->
     [0] { empty }
     *[HAS] • <b>Ваша скидка</b>: { $personal_discount }%
     }
-    </blockquote>
 
 frg-user-info =
-    <blockquote>
     • <b>ID</b>: <code>{ $user_id }</code>
     • <b>Имя</b>: { $user_name } { $username -> 
         [0] { empty }
         *[HAS] (<a href="tg://user?id={ $user_id }">@{ $username }</a>)
     }
-    </blockquote>
 
 frg-user-details =
-    <blockquote>
     • <b>ID</b>: <code>{ $user_id }</code>
     • <b>Имя</b>: { $user_name } { $username -> 
         [0] { space }
@@ -79,36 +74,27 @@ frg-user-details =
     [1] • <b>Баллы</b>: { $points }
     *[0] { empty }
     }
-    </blockquote>
 
 frg-user-discounts-details =
-    <blockquote>
     • <b>Персональная</b>: { $personal_discount }%
     • <b>На следующую покупку</b>: { $purchase_discount }%
-    </blockquote>
 
 frg-subscription =
-    <blockquote>
     • <b>Лимит трафика</b>: { $traffic_limit }
     • <b>Лимит устройств</b>: { $device_limit }
     • <b>Осталось</b>: { $expire_time }
-    </blockquote>
 
 frg-subscription-details =
-    <blockquote>
     • <b>ID</b>: <code>{ $subscription_id }</code>
     • <b>Статус</b>: { subscription-status }
     • <b>Трафик</b>: { $traffic_used } / { $traffic_limit }
     • <b>Лимит устройств</b>: { $device_limit }
     • <b>Осталось</b>: { $expire_time }
-    </blockquote>
 
 frg-payment-info =
-    <blockquote>
     • <b>ID</b>: <code>{ $payment_id }</code>
     • <b>Способ оплаты</b>: { gateway-type }
     • <b>Сумма</b>: { frg-payment-amount }
-    </blockquote>
 
 frg-payment-amount = { $final_amount }{ $currency } { $discount_percent -> 
     [0] { space }
@@ -116,25 +102,20 @@ frg-payment-amount = { $final_amount }{ $currency } { $discount_percent ->
     }
 
 frg-plan-snapshot =
-    <blockquote>
     • <b>План</b>: <code>{ $plan_name }</code>
     • <b>Тип</b>: { plan-type }
     • <b>Лимит трафика</b>: { $plan_traffic_limit }
     • <b>Лимит устройств</b>: { $plan_device_limit }
     • <b>Длительность</b>: { $plan_duration }
-    </blockquote>
 
 frg-plan-snapshot-comparison =
-    <blockquote>
     • <b>План</b>: <code>{ $previous_plan_name }</code> -> <code>{ $plan_name }</code>
     • <b>Тип</b>: { $previous_plan_type } -> { plan-type }
     • <b>Лимит трафика</b>: { $previous_plan_traffic_limit } -> { $plan_traffic_limit }
     • <b>Лимит устройств</b>: { $previous_plan_device_limit } -> { $plan_device_limit }
     • <b>Длительность</b>: { $previous_plan_duration } -> { $plan_duration }
-    </blockquote>
 
 frg-node-info =
-    <blockquote>
     • <b>Название</b>: { $country } { $name }
     • <b>Адрес</b>: <code>{ $address }:{ $port }</code>
     • <b>Трафик</b>: { $traffic_used } / { $traffic_limit }
@@ -146,28 +127,23 @@ frg-node-info =
     [0] { empty }
     *[HAS] • <b>Статус изменен</b>: { $last_status_change }
     }
-    </blockquote>
 
 frg-user-hwid =
-    <blockquote>
     • <b>HWID</b>: <code>{ $hwid }</code>
 
     • <b>Платформа</b>: { $platform }
     • <b>Модель</b>: { $device_model }
     • <b>Версия ОС</b>: { $os_version }
     • <b>Агент</b>: { $user_agent }
-    </blockquote>
 
 frg-build-info =
     { $has_build ->
     [0] { space }
     *[HAS]
     <b>🏗️ Информация о сборке:</b>
-    <blockquote>
     Время сборки: { $time }
     Ветка: { $branch } ({ $tag })
     Коммит: <a href="{ $commit_url }">{ $commit }</a>
-    </blockquote>
     }
 
 # Roles

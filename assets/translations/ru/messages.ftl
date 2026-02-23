@@ -17,16 +17,13 @@ msg-main-menu =
     [ACTIVE]
     { frg-subscription }
     [EXPIRED]
-    <blockquote>
     • Срок действия истек.
     
     <i>{ $is_trial ->
     [0] Ваша подписка истекла. Продлите ее, чтобы продолжить пользоваться сервисом!
     *[1] Ваш бесплатный пробный период закончился. Оформите подписку, чтобы продолжить пользоваться сервисом!
     }</i>
-    </blockquote>
     [LIMITED]
-    <blockquote>
     • Ваш трафик израсходован.
 
     <i>{ $is_trial ->
@@ -39,22 +36,17 @@ msg-main-menu =
         *[RESET] Трафик будет восстановлен через { $reset_time }. Вы также можете оформить подписку, чтобы пользоваться сервисом без ограничений.
         }
     }</i>
-    </blockquote>
     [DISABLED]
-    <blockquote>
     • Ваша подписка отключена.
 
     <i>Свяжитесь с поддержкой для выяснения причины!</i>
-    </blockquote>
     *[NONE]
-    <blockquote>
     • У вас нет оформленной подписки.
 
     <i>{ $trial_available ->
     [1] 🎁 Для вас доступен бесплатный пробник — нажмите кнопку ниже, чтобы его получить.
     *[0] ↘️ Для покупки доступа перейдите в меню «Подписка».
     }</i>
-    </blockquote>
     }
 
 msg-menu-devices =
@@ -74,29 +66,24 @@ msg-menu-invite =
     }!
 
     <b>📊 Статистика:</b>
-    <blockquote>
     👥 Всего приглашенных: { $referrals }
     💳 Платежей по вашей ссылке: { $payments }
     { $reward_type -> 
     [POINTS] 💎 Ваши баллы: { $points }
     *[EXTRA_DAYS] { empty }
     }
-    </blockquote>
 
 msg-menu-invite-about =
     <b>🎁 Подробнее о вознаграждении</b>
 
     <b>✨ Как получить награду:</b>
-    <blockquote>
     { $accrual_strategy ->
     [ON_FIRST_PAYMENT] Награда начисляется за первую покупку подписки приглашенным пользователем.
     [ON_EACH_PAYMENT] Награда начисляется за каждую покупку или продление подписки приглашенным пользователем.
     *[OTHER] { $accrual_strategy }
     }
-    </blockquote>
 
     <b>💎 Что вы получаете:</b>
-    <blockquote>
     { $max_level -> 
     [1] За приглашенных друзей: { $reward_level_1 }
     *[MORE]
@@ -122,7 +109,6 @@ msg-menu-invite-about =
     }
     *[OTHER] { $reward_strategy_type }
     }
-    </blockquote>
 
 msg-invite-reward = { $value }{ $reward_strategy_type ->
     [AMOUNT] { $reward_type ->
@@ -156,7 +142,6 @@ msg-statistics-main = { $statistics }
 msg-statistics-users =
     <b>👥 Статистика по пользователям</b>
 
-    <blockquote>
     • <b>Всего</b>: { $total_users }
     • <b>Новые за день</b>: { $new_users_daily }
     • <b>Новые за неделю</b>: { $new_users_weekly }
@@ -171,12 +156,10 @@ msg-statistics-users =
 
     • <b>Конверсия пользователей → покупка</b>: { $user_conversion }%
     • <b>Конверсия пробников → подписка</b>: { $trial_conversion }%
-    </blockquote>
 
 msg-statistics-transactions =
     <b>🧾 Статистика по транзакциям</b>
 
-    <blockquote>
     • <b>Всего транзакций</b>: { $total_transactions }
     • <b>Завершенных транзакций</b>: { $completed_transactions }
     • <b>Бесплатных транзакций</b>: { $free_transactions }
@@ -184,25 +167,20 @@ msg-statistics-transactions =
     [0] { empty }
     *[HAS] • <b>Популярная платежная система</b>: { $popular_gateway }
     }
-    </blockquote>
 
     { $payment_gateways }
 
 msg-statistics-subscriptions =
     <b>💳 Статистика по подпискам</b>
 
-    <blockquote>
     • <b>Активные</b>: { $total_active_subscriptions }
     • <b>Истекшие</b>: { $total_expire_subscriptions }
     • <b>Пробные</b>: { $active_trial_subscriptions }
     • <b>Истекающие (7 дней)</b>: { $expiring_subscriptions }
-    </blockquote>
 
-    <blockquote>
     • <b>С безлимитом</b>: { $total_unlimited }
     • <b>С лимитом трафика</b>: { $total_traffic }
     • <b>С лимитом устройств</b>: { $total_devices }
-    </blockquote>
 
 msg-statistics-plans = 
     <b>📦 Статистика по планам</b>
@@ -212,7 +190,6 @@ msg-statistics-plans =
 msg-statistics-promocodes =
     <b>🎁 Статистика по промокодам</b>
 
-    <blockquote>
     • <b>Общее кол-во активаций</b>: { $total_promo_activations }
     • <b>Самый популярный промокод</b>: { $most_popular_promo ->
     [0] { unknown }
@@ -223,39 +200,32 @@ msg-statistics-promocodes =
     • <b>Выдано подписок</b>: { $total_promo_subscriptions }
     • <b>Выдано личных скидок</b>: { $total_promo_personal_discounts }
     • <b>Выдано одноразовых скидок</b>: { $total_promo_purchase_discounts }
-    </blockquote>
 
 msg-statistics-referrals =
     <b>👪 Статистика по реферальной системе</b>
     
-    <blockquote>
     • <b></b>:
-    </blockquote>
 
 msg-statistics-transactions-gateway =
     <b>{ gateway-type }:</b>
-    <blockquote>
     • <b>Общий доход</b>: { $total_income }{ $currency }
     • <b>Доход за день</b>: { $daily_income }{ $currency }
     • <b>Доход за неделю</b>: { $weekly_income }{ $currency }
     • <b>Доход за месяц</b>: { $monthly_income }{ $currency }
     • <b>Средний чек</b>: { $average_check }{ $currency }
     • <b>Сумма скидок</b>: { $total_discounts }{ $currency }
-    </blockquote>
 
 msg-statistics-plan =
     <b>{ $plan_name }:</b> { $popular -> 
     [0] { space }
     *[HAS] (⭐)
     }
-    <blockquote>
     • <b>Всего подписок</b>: { $total_subscriptions }
     • <b>Активных подписок</b>: { $active_subscriptions }
     • <b>Популярная длительность</b>: { $popular_duration }
 
     • <b>Общий доход</b>: 
     { $all_income }
-    </blockquote>
 
 msg-statistics-plan-income = { $income }{ $currency }
     
@@ -265,7 +235,6 @@ msg-statistics-plan-income = { $income }{ $currency }
 msg-access-main =
     <b>🔓 Режим доступа</b>
     
-    <blockquote>
     • <b>Режим</b>: { access-mode }
     • <b>Покупки</b>: { $purchases_allowed ->
     [0] запрещены
@@ -275,7 +244,6 @@ msg-access-main =
     [0] запрещена
     *[1] разрешена
     }.
-    </blockquote>
 
 msg-access-conditions =
     <b>⚙️ Условия доступа</b>
@@ -314,18 +282,14 @@ msg-broadcast-buttons = <b>✳️ Кнопки рассылки</b>
 msg-broadcast-view =
     <b>📢 Рассылка</b>
 
-    <blockquote>
     • <b>ID</b>: <code>{ $broadcast_id }</code>
     • <b>Статус</b>: { broadcast-status }
     • <b>Аудитория</b>: { audience-type }
     • <b>Создано</b>: { $created_at }
-    </blockquote>
 
-    <blockquote>
     • <b>Всего сообщений</b>: { $total_count }
     • <b>Успешных</b>: { $success_count }
     • <b>Неудачных</b>: { $failed_count }
-    </blockquote>
 
 
 # Users
@@ -359,51 +323,37 @@ msg-user-main =
     { frg-user-details }
 
     <b>💸 Скидка:</b>
-    <blockquote>
     • <b>Персональная</b>: { $personal_discount }%
     • <b>На следующую покупку</b>: { $purchase_discount }%
-    </blockquote>
     
     { hdr-subscription }
     { $status ->
     [ACTIVE]
     { frg-subscription }
     [EXPIRED]
-    <blockquote>
     • Срок действия истек.
-    </blockquote>
     [LIMITED]
-    <blockquote>
     • Превышен лимит трафика.
-    </blockquote>
     [DISABLED]
-    <blockquote>
     • Подписка отключена.
-    </blockquote>
     *[NONE]
-    <blockquote>
     • Нет текущей подписки.
-    </blockquote>
     }
 
 msg-user-sync = 
     <b>🌀 Синхронизировать пользователя</b>
 
     <b>🛍 Remnashop:</b> { $bot_version }
-    <blockquote>
     { $has_bot_subscription -> 
     [0] Данные отсутствуют
     *[HAS]{ $bot_subscription }
     }
-    </blockquote>
 
     <b>🌊 Remnawave:</b> { $remna_version }
-    <blockquote>
     { $has_remna_subscription -> 
     [0] Данные отсутствуют
     *[HAS] { $remna_subscription }
     }
-    </blockquote>
 
     Выберите актуальные данные для синхронизации.
 
@@ -522,7 +472,6 @@ msg-user-subscription-info =
     { hdr-subscription }
     { frg-subscription-details }
 
-    <blockquote>
     • <b>Сквады</b>: { $squads -> 
     [0] { unknown }
     *[HAS] { $squads }
@@ -535,7 +484,6 @@ msg-user-subscription-info =
     [0] { unknown }
     *[HAS] { $last_connected_at } ({ $node_name })
     } 
-    </blockquote>
 
     { hdr-plan }
     { frg-plan-snapshot }
@@ -544,14 +492,12 @@ msg-user-transaction-info =
     <b>🧾 Информация о транзакции</b>
 
     { hdr-payment }
-    <blockquote>
     • <b>ID</b>: <code>{ $payment_id }</code>
     • <b>Тип</b>: { purchase-type }
     • <b>Статус</b>: { transaction-status }
     • <b>Способ оплаты</b>: { gateway-type }
     • <b>Сумма</b>: { frg-payment-amount }
     • <b>Создано</b>: { $created_at }
-    </blockquote>
 
     { $is_test -> 
     [1] ⚠️ Тестовая транзакция
@@ -581,7 +527,6 @@ msg-remnawave-main =
     <b>🌊 RemnaWave</b>
     
     <b>🖥️ Система:</b>
-    <blockquote>
     • <b>ЦПУ</b>: { $cpu_cores } { $cpu_cores ->
     [one] ядро
     [few] ядра
@@ -593,47 +538,39 @@ msg-remnawave-main =
     }
     • <b>ОЗУ</b>: { $ram_used } / { $ram_total } ({ $ram_used_percent }%)
     • <b>Аптайм</b>: { $uptime }
-    </blockquote>
 
 msg-remnawave-users =
     <b>👥 Пользователи</b>
 
     <b>📊 Статистика:</b>
-    <blockquote>
     • <b>Всего</b>: { $users_total }
     • <b>Активные</b>: { $users_active }
     • <b>Отключенные</b>: { $users_disabled }
     • <b>Ограниченные</b>: { $users_limited }
     • <b>Истекшие</b>: { $users_expired }
-    </blockquote>
 
     <b>🟢 Онлайн:</b>
-    <blockquote>
     • <b>За день</b>: { $online_last_day }
     • <b>За неделю</b>: { $online_last_week }
     • <b>Никогда не заходили</b>: { $online_never }
     • <b>Сейчас онлайн</b>: { $online_now }
-    </blockquote>
 
 msg-remnawave-host-details =
     <b>{ $remark } ({ $status ->
     [ON] включен
     *[OFF] выключен
     }):</b>
-    <blockquote>
     • <b>Адрес</b>: <code>{ $address }:{ $port }</code>
     { $inbound_uuid ->
     [0] { empty }
     *[HAS] • <b>Инбаунд</b>: <code>{ $inbound_uuid }</code>
     }
-    </blockquote>
 
 msg-remnawave-node-details =
     <b>{ $country } { $name } ({ $status ->
     [ON] подключено
     *[OFF] отключено
     }):</b>
-    <blockquote>
     • <b>Адрес</b>: <code>{ $address }{ $port -> 
     [0] { empty }
     *[HAS]:{ $port }
@@ -641,11 +578,9 @@ msg-remnawave-node-details =
     • <b>Аптайм (xray)</b>: { $xray_uptime }
     • <b>Пользователей онлайн</b>: { $users_online }
     • <b>Трафик</b>: { $traffic_used } / { $traffic_limit }
-    </blockquote>
 
 msg-remnawave-inbound-details =
     <b>🔗 { $tag }</b>
-    <blockquote>
     • <b>ID</b>: <code>{ $inbound_id }</code>
     • <b>Протокол</b>: { $type } ({ $network })
     { $port ->
@@ -656,7 +591,6 @@ msg-remnawave-inbound-details =
     [0] { empty }
     *[HAS] • <b>Безопасность</b>: { $security } 
     }
-    </blockquote>
 
 msg-remnawave-hosts =
     <b>🌐 Хосты</b>
@@ -695,7 +629,6 @@ msg-gateways-field =
 msg-referral-main =
     <b>👥 Реферальная система</b>
 
-    <blockquote>
     • <b>Статус</b>: { $is_enable -> 
         [1] 🟢 Включена
         *[0] 🔴 Выключена
@@ -704,7 +637,6 @@ msg-referral-main =
     • <b>Количество уровней</b>: { $referral_level }
     • <b>Условие начисления</b>: { accrual-strategy }
     • <b>Форма начисления</b>: { reward-strategy }
-    </blockquote>
 
     Выберите пункт для изменения.
 
@@ -755,9 +687,7 @@ msg-referral-reward-level = { $level } уровень: { $value }{ $reward_strat
 msg-referral-reward =
     <b>🎁 Изменить награду</b>
 
-    <blockquote>
     { $reward }
-    </blockquote>
 
     { $reward_strategy_type ->
         [AMOUNT] Введите количество { $reward_type ->
@@ -779,7 +709,6 @@ msg-plans-main = <b>📦 Планы</b>
 msg-plan-configurator =
     <b>📦 Конфигуратор плана</b>
 
-    <blockquote>
     • <b>Название</b>: { $name }
     • <b>Тип</b>: { plan-type }
     • <b>Доступ</b>: { availability-type }
@@ -787,9 +716,7 @@ msg-plan-configurator =
         [1] 🟢 Включен
         *[0] 🔴 Выключен
         }
-    </blockquote>
     
-    <blockquote>
     • <b>Лимит трафика</b>: { $is_unlimited_traffic -> 
         [1] { unlimited }
         *[0] { $traffic_limit }
@@ -798,7 +725,6 @@ msg-plan-configurator =
         [1] { unlimited }
         *[0] { $device_limit }
         }
-    </blockquote>
 
     Выберите пункт для изменения.
 
@@ -808,9 +734,7 @@ msg-plan-name =
     { $name ->
     [0] { space }
     *[HAS]
-    <blockquote>
     { $name }
-    </blockquote>
     }
 
     Введите новое название плана.
@@ -821,9 +745,7 @@ msg-plan-description =
     { $description ->
     [0] { space }
     *[HAS]
-    <blockquote>
     { $description }
-    </blockquote>
     }
 
     Введите новое описание плана.
@@ -834,9 +756,7 @@ msg-plan-tag =
     { $tag ->
     [0] { space }
     *[HAS]
-    <blockquote>
     { $tag }
-    </blockquote>
     }
 
     Введите новой тег плана (только латинские заглавные буквы, цифры и символ подчеркивания).
@@ -930,7 +850,6 @@ msg-subscription-renew-success = Ваша подписка продлена на
 
 msg-subscription-details =
     <b>{ $plan }:</b>
-    <blockquote>
     { $description ->
     [0] { empty }
     *[HAS]
@@ -947,7 +866,6 @@ msg-subscription-details =
     [0] { empty }
     *[HAS] • <b>Стоимость</b>: { frg-payment-amount }
     }
-    </blockquote>
 
 msg-subscription-duration = 
     <b>⏳ Выберите длительность</b>
@@ -1013,11 +931,9 @@ msg-importer-from-xui =
     { $has_exported -> 
     [1]
     <b>🔍 Найдено:</b>
-    <blockquote>
     Всего пользователей: { $total }
     С активной подпиской: { $active }
     С истекшей подпиской: { $expired }
-    </blockquote>
     *[0]
     Импортируются все активные пользователи с числовым email.
 
@@ -1035,17 +951,14 @@ msg-importer-import-completed =
     <b>📥 Импорт пользователей завершен</b>
     
     <b>📃 Информация:</b>
-    <blockquote>
     • <b>Всего пользователей</b>: { $total_count }
     • <b>Успешно импортированы</b>: { $success_count }
     • <b>Не удалось импортировать</b>: { $failed_count }
-    </blockquote>
 
 msg-importer-sync-completed =
     <b>📥 Синхронизация пользователей завершена</b>
 
     <b>📃 Информация:</b>
-    <blockquote>
     Всего пользователей в панели: { $total_panel_users }
     Всего пользователей в боте: { $total_bot_users }
 
@@ -1055,7 +968,6 @@ msg-importer-sync-completed =
     
     Пользователи без Telegram ID: { $missing_telegram }
     Ошибки при синхронизации: { $errors }
-    </blockquote>
 
 
 # Promocodes
@@ -1063,7 +975,6 @@ msg-promocodes-main = <b>🎟 Промокоды</b>
 msg-promocode-configurator =
     <b>🎟 Конфигуратор промокода</b>
 
-    <blockquote>
     • <b>Код</b>: { $code }
     • <b>Тип</b>: { promocode-type }
     • <b>Доступ</b>: { availability-type }
@@ -1071,9 +982,7 @@ msg-promocode-configurator =
         [1] 🟢 Включен
         *[0] 🔴 Выключен
         }
-    </blockquote>
 
-    <blockquote>
     { $promocode_type ->
     [DURATION] • <b>Длительность</b>: { $reward }
     [TRAFFIC] • <b>Трафик</b>: { $reward }
@@ -1085,6 +994,5 @@ msg-promocode-configurator =
     }
     • <b>Срок действия</b>: { $lifetime }
     • <b>Лимит активаций</b>: { $max_activations }
-    </blockquote>
 
     Выберите пункт для изменения.

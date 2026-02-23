@@ -19,25 +19,19 @@ ntf-event-error =
     }
 
     { hdr-error }
-    <blockquote>
     { $error }
-    </blockquote>
 
 ntf-event-error-remnawave =
     #EventError
 
     <b>🔅 Событие: Ошибка при подключении к Remnawave!</b>
 
-    <blockquote>
     Без активного подключения корректная работа бота невозможна!
-    </blockquote>
 
     { frg-build-info }
 
     { hdr-error }
-    <blockquote>
     { $error }
-    </blockquote>
 
 ntf-event-error-webhook =
     #EventError
@@ -45,16 +39,13 @@ ntf-event-error-webhook =
     <b>🔅 Событие: Зафиксирована ошибка вебхука!</b>
 
     { hdr-error }
-    <blockquote>
     { $error }
-    </blockquote>
 
 ntf-event-bot-startup =
     #EventBotStarted
 
     <b>🔅 Событие: Бот запущен!</b>
 
-    <blockquote>
     • <b>Режим доступа</b>: { access-mode }
     • <b>Покупки</b>: { $purchases_allowed ->
     [0] запрещены
@@ -64,7 +55,6 @@ ntf-event-bot-startup =
     [0] запрещена
     *[1] разрешена
     }.
-    </blockquote>
 
 ntf-event-bot-shutdown =
     #EventBotShutdown
@@ -76,10 +66,8 @@ ntf-event-bot-update =
 
     <b>🔅 Событие: Обнаружено обновление Remnashop!</b>
 
-    <blockquote>
     • <b>Текущая версия</b>: { $local_version }
     • <b>Доступная версия</b>: { $remote_version }
-    </blockquote>
 
 ntf-event-new-user =
     #EventNewUser
@@ -93,13 +81,11 @@ ntf-event-new-user =
     [0] { empty }
     *[HAS]
     <b>🤝 Реферер:</b>
-    <blockquote>
     • <b>ID</b>: <code>{ $referrer_user_id }</code>
     • <b>Имя</b>: { $referrer_user_name } { $referrer_username -> 
         [0] { empty }
         *[HAS] (<a href="tg://user?id={ $referrer_user_id }">@{ $referrer_username }</a>)
     }
-    </blockquote>
     }
     
 ntf-event-subscription-trial =
@@ -279,14 +265,11 @@ ntf-event-user-hwid-deleted =
 ntf-event-user-referral-attached =
     <b>🎉 Вы пригласили друга!</b>
     
-    <blockquote>
     Пользователь <b>{ $name }</b> присоединился по вашей пригласительной ссылке! Чтобы получить награду, убедитесь, что он совершит покупку подписки.
-    </blockquote>
 
 ntf-event-user-referral-reward =
     <b>💰 Вам начислена награда!</b>
     
-    <blockquote>
     Пользователь <b>{ $name }</b> совершил платеж. Вы получили <b>{ $value } { $reward_type ->
     [POINTS] { $value -> 
         [one] балл
@@ -300,12 +283,10 @@ ntf-event-user-referral-reward =
         }
     *[OTHER] { $reward_type }
     }</b> к вашей подписке!
-    </blockquote>
 
 ntf-event-user-referral-reward-error =
     <b>❌ Не получилось выдать награду!</b>
     
-    <blockquote>
     Пользователь <b>{ $name }</b> совершил платеж, но мы не смогли начислить вам вознаграждение из-за того что <b>у вас нет купленной подписки</b>, к которой можно было бы добавить {$value} { $value ->
             [one] доп. день
             [few] доп. дня
@@ -313,7 +294,6 @@ ntf-event-user-referral-reward-error =
         }.
     
     <i>Купите подписку, чтобы получать бонусы за приглашенных друзей!</i>
-    </blockquote>
 
 
 # Notifications
@@ -431,11 +411,9 @@ ntf-broadcast-already-deleted = <i>❌ Рассылка находится в п
 ntf-broadcast-deleted-success =
     ✅ Рассылка <code>{ $task_id }</code> успешно удалена.
 
-    <blockquote>
     • <b>Всего сообщений</b>: { $total_count }
     • <b>Успешно удалено</b>: { $deleted_count }
     • <b>Не удалось удалить</b>: { $failed_count }
-    </blockquote>
 
 ntf-trial-unavailable = <i>❌ Пробная подписка временно недоступна.</i>
 
